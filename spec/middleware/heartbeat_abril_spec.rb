@@ -23,7 +23,7 @@ describe HeartbeatAbril::Middleware do
     end
   end
 
-  describe "when middleware does not handles the request" do
+  describe "when middleware does not handle the request" do
     it "responds success" do
       status, env, body = middleware.call env_for('http://www.example.com/')
 
