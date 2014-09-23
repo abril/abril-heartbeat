@@ -1,5 +1,6 @@
 require "heartbeat_abril/version"
 require "heartbeat_abril/heartbeater"
+require "json"
 
 module HeartbeatAbril
   class Middleware
@@ -12,7 +13,7 @@ module HeartbeatAbril
       @env = env
 
       if request.path == '/heartbeat'
-        [200, { 'Content-Type' => 'text/json' }, response]
+        [200, { 'Content-Type' => 'text/json' }, [response.to_json]]
       else
         @app.call(env)
       end
