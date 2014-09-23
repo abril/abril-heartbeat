@@ -7,7 +7,7 @@ describe HeartbeatAbril::Middleware do
 
   let(:app)        { ->(env) { [200, env, "app"] } }
   let(:middleware) { described_class.new(app, {file_path: file_path}) }
-  let(:file_path) { "#{File.dirname(__FILE__)}/../support/heartbeat_example.yml" }
+  let(:file_path)  { "#{File.dirname(__FILE__)}/../support/heartbeat_example.yml" }
 
   let(:response) { [api_success_response, api_not_found_response, api_wrong_url_response] }
 
