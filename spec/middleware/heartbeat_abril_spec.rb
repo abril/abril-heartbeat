@@ -1,6 +1,7 @@
 require 'spec_helper'
 require 'rack/test'
 require 'heartbeat_abril'
+require 'json'
 
 describe HeartbeatAbril::Middleware do
   include Rack::Test::Methods
@@ -9,7 +10,7 @@ describe HeartbeatAbril::Middleware do
   let(:middleware) { described_class.new(app, {file_path: file_path}) }
   let(:file_path)  { "#{File.dirname(__FILE__)}/../support/heartbeat_example.yml" }
 
-  let(:response) { [api_success_response, api_not_found_response, api_wrong_url_response] }
+  let(:response) { [[api_success_response, api_not_found_response, api_wrong_url_response].to_json] }
 
   let(:api_success_response) do
     { "api_success" =>
