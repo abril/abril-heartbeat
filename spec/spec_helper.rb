@@ -1,3 +1,8 @@
+require 'factory_girl'
+
+# Load Factories
+FactoryGirl.find_definitions
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -28,4 +33,7 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
+
+  # Configure FactoryGirl Helper Methods
+  config.include FactoryGirl::Syntax::Methods
 end
