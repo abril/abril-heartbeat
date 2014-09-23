@@ -41,8 +41,14 @@ describe HeartbeatAbril::Heartbeater do
   subject { described_class.new(file_path) }
 
   describe "#rest_run!" do
-    it "returns the status code" do
+    it "returns the status codes" do
       expect(subject.rest_run!).to eql(response)
+    end
+  end
+
+  describe "#run!" do
+    it "returns the status codes" do
+      expect(subject.run!).to eql(response)
     end
   end
 end
