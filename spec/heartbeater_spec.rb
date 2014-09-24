@@ -10,7 +10,7 @@ describe HeartbeatAbril::Heartbeater do
 
   describe "#run!" do
     describe "Default checkers" do
-      subject { described_class.new(file_path) }
+      subject { described_class.new(file_path).run! }
 
       context "when the app has more than one dependency" do
         before do
@@ -18,9 +18,7 @@ describe HeartbeatAbril::Heartbeater do
           allow(HeartbeatAbril::MongoChecker).to receive(:is_running?) { true }
         end
 
-        it "returns the status codes" do
-          expect(subject.run!).to eql([{"REST" => "MOCK"}, {"MONGO" => "MOCK"}])
-        end
+        it { is_expected.to eql([{"REST" => "MOCK"}, {"MONGO" => "MOCK"}]) }
       end
 
       context "when the app just have on kind of dependency" do
@@ -29,16 +27,14 @@ describe HeartbeatAbril::Heartbeater do
           allow(HeartbeatAbril::MongoChecker).to receive(:is_running?) { true }
         end
 
-        it "returns the status codes" do
-          expect(subject.run!).to eql([{"MONGO" => "MOCK"}])
-        end
+        it { is_expected.to eql([{"MONGO" => "MOCK"}]) }
       end
     end
 
     describe "Custom checkers" do
       let(:custom_checker) { double("CustomChecker", is_running?: true) }
 
-        subject { described_class.new(file_path, {custom_checkers: [custom_checker]}) }
+      subject { described_class.new(file_path, {custom_checkers: [custom_checker]}) }
 
       before do
         allow(HeartbeatAbril::RestChecker).to receive(:is_running?) { false }
