@@ -36,7 +36,7 @@ describe HeartbeatAbril::Heartbeater do
     end
 
     describe "Custom checkers" do
-      let(:custom_checker) { double("AAA", is_running?: true) }
+      let(:custom_checker) { double("CustomChecker", is_running?: true) }
 
         subject { described_class.new(file_path, {custom_checkers: [custom_checker]}) }
 
