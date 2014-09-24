@@ -18,15 +18,15 @@ describe HeartbeatAbril::RestChecker do
     it { is_expected.to eql(response) }
   end
 
-  describe "#app_has_rest_calls?" do
+  describe "#is_running??" do
     context "when there is rest calls" do
-      subject { described_class.app_has_rest_calls?(input_hash) }
+      subject { described_class.is_running?(input_hash) }
 
       it { is_expected.to be_truthy }
     end
 
     context "when there is not rest calls" do
-      subject { described_class.app_has_rest_calls?({}) }
+      subject { described_class.is_running?({}) }
 
       it { is_expected.to be_falsy }
     end

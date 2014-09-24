@@ -1,6 +1,6 @@
 module HeartbeatAbril
   class MongoChecker
-    def self.app_has_mongo?
+    def self.is_running?
       MongoWrapper.has_client?
     end
 

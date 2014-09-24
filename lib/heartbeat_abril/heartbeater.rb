@@ -2,15 +2,19 @@ require "yaml"
 
 module HeartbeatAbril
   class Heartbeater
-    def initialize(file_path)
+    def initialize(file_path, options={})
       @rest_hash = ::YAML.load_file(file_path)
+      @checkers = [MongoChecker, MysqlChecker]
+      @checkers += options[:custom_checkers] if options[:custom_checkers]
     end
 
     def run!
       response = []
-      response << RestChecker.run!(@rest_hash) if RestChecker.app_has_rest_calls?(@rest_hash)
-      response << MongoChecker.run! if MongoChecker.app_has_mongo?
-      response << MysqlChecker.run! if MysqlChecker.app_has_mysql?
+      response << RestChecker.run!(@rest_hash) if RestChecker.is_running?(@rest_hash)
+
+      @checkers.each do |checker|
+        response << checker.run! if checker.is_running?
+      end
 
       response
     end

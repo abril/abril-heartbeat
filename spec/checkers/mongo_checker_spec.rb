@@ -26,13 +26,13 @@ describe HeartbeatAbril::MongoChecker do
     context "when the app has a mongo client" do
       before { allow(HeartbeatAbril::MongoWrapper).to receive(:has_client?) { "constant" } }
 
-      subject { described_class.app_has_mongo? }
+      subject { described_class.is_running? }
 
       it { is_expected.to be_truthy }
     end
 
     context "when the app does not have a mongo client" do
-      subject { described_class.app_has_mongo? }
+      subject { described_class.is_running? }
 
       it { is_expected.to be_falsy }
     end

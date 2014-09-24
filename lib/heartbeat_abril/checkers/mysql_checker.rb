@@ -1,6 +1,6 @@
 module HeartbeatAbril
   class MysqlChecker
-    def self.app_has_mysql?
+    def self.is_running?
       MysqlWrapper.has_client?
     end
 
