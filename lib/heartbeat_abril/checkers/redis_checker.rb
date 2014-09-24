@@ -1,17 +1,16 @@
 module HeartbeatAbril
-  class RedisChecker
+  class RedisChecker < AbstractChecker
     def self.is_running?
       RedisWrapper.has_client?
     end
 
-    def self.run!
-      status, message = check_redis!
-      { "REDIS" => { "status" => status, "status_message" => message }}
+    def self.module_name
+      "REDIS"
     end
 
     private
 
-    def self.check_redis!
+    def self.check!
       RedisWrapper.check_status!
       ["OK", "Everything is under control"]
     rescue => exception

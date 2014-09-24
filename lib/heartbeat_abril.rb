@@ -2,7 +2,11 @@ require "json"
 require "heartbeat_abril/version"
 require "heartbeat_abril/heartbeater"
 
+# Config Loader
+require "heartbeat_abril/config_loader"
+
 # Checkers
+require "heartbeat_abril/checkers/abstract_checker"
 require "heartbeat_abril/checkers/rest_checker"
 require "heartbeat_abril/checkers/mongo_checker"
 require "heartbeat_abril/checkers/mysql_checker"

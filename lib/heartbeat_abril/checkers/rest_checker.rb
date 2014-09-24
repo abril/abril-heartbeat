@@ -1,24 +1,32 @@
 require "rest_client"
 
 module HeartbeatAbril
-  class RestChecker
+  class RestChecker < AbstractChecker
+    def self.is_running?
+      !rest_hash.empty?
+    end
 
-    def self.run!(rest_hash)
+    def self.run!
       messages = rest_hash.map do |key, value|
-        status, message = check_rest!(value['url'])
+        status, message = check!{ value['url'] }
         { key => { "url" => value["url"], "status" => status, "status_message" => message }}
       end
 
-      { "REST" => messages }
+      { module_name => messages }
     end
 
-    def self.is_running?(rest_hash)
-      !rest_hash.empty?
+    def self.module_name
+      "REST"
     end
 
     private
 
-    def self.check_rest!(url)
+    def self.rest_hash
+      ConfigLoader.load
+    end
+
+    def self.check!(&block)
+      url = yield
       response = RestClient.get(url)
       [response.code, "OK"]
     rescue RestClient::ResourceNotFound

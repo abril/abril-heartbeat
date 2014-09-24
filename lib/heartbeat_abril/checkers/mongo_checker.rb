@@ -1,17 +1,16 @@
 module HeartbeatAbril
-  class MongoChecker
+  class MongoChecker < AbstractChecker
     def self.is_running?
       MongoWrapper.has_client?
     end
 
-    def self.run!
-      status, message = check_mongo!
-      { "MONGO" => { "status" => status, "status_message" => message }}
+    def self.module_name
+      "MONGO"
     end
 
     private
 
-    def self.check_mongo!
+    def self.check!
       MongoWrapper.check_status!
       ["OK", "Everything is under control"]
     rescue => exception

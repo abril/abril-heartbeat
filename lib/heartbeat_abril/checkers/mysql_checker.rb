@@ -1,17 +1,16 @@
 module HeartbeatAbril
-  class MysqlChecker
+  class MysqlChecker < AbstractChecker
     def self.is_running?
       MysqlWrapper.has_client?
     end
 
-    def self.run!
-      status, message = check_mysql!
-      { "MYSQL" => { "status" => status, "status_message" => message }}
+    def self.module_name
+      "MYSQL"
     end
 
     private
 
-    def self.check_mysql!
+    def self.check!
       MysqlWrapper.check_status!
       ["OK", "Everything is under control"]
     rescue => exception

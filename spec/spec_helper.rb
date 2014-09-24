@@ -37,4 +37,7 @@ RSpec.configure do |config|
 
   # Configure FactoryGirl Helper Methods
   config.include FactoryGirl::Syntax::Methods
+
+  # Load Support Files
+  Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
 end
