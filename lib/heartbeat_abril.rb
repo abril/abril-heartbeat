@@ -1,6 +1,13 @@
+require "json"
 require "heartbeat_abril/version"
 require "heartbeat_abril/heartbeater"
-require "json"
+
+# Checkers
+require "heartbeat_abril/checkers/rest_checker"
+require "heartbeat_abril/checkers/mongo_checker"
+
+# Wrappers
+require "heartbeat_abril/wrappers/mongo_wrapper"
 
 module HeartbeatAbril
   class Middleware
@@ -11,7 +18,6 @@ module HeartbeatAbril
 
     def call(env)
       @env = env
-
       if request.path == '/heartbeat'
         [200, { 'Content-Type' => 'text/json' }, [response.to_json]]
       else

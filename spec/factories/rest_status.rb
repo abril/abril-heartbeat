@@ -3,8 +3,7 @@ FactoryGirl.define do
     initialize_with {{
       "api_success" => {
         "url" => "http://www.scudelletti.com",
-        "type" => "rest",
-        "status_code" => 200,
+        "status" => 200,
         "status_message" => "OK"
       }
     }}
@@ -14,8 +13,7 @@ FactoryGirl.define do
     initialize_with {{
       "api_not_found" => {
         "url" => "http://www.scudelletti.com/not_found",
-        "type" => "rest",
-        "status_code" => 404,
+        "status" => 404,
         "status_message" => "Page Not Found"
       }
     }}
@@ -25,8 +23,7 @@ FactoryGirl.define do
     initialize_with {{
       "api_wrong_url" => {
         "url" => "I am a wrong url",
-        "type" => "rest",
-        "status_code" => nil,
+        "status" => nil,
         "status_message" => "bad URI(is not URI?): http://I am a wrong url"
       }
     }}

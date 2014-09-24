@@ -1,24 +1,36 @@
 require 'spec_helper'
-require 'heartbeat_abril/heartbeater'
 
 describe HeartbeatAbril::Heartbeater do
   let(:file_path) { "#{File.dirname(__FILE__)}/support/heartbeat_example.yml" }
-  let(:response)  { [api_success_response, api_not_found_response, api_wrong_url_response] }
-  let(:api_success_response)   { build(:api_success) }
-  let(:api_not_found_response) { build(:api_not_found) }
-  let(:api_wrong_url_response) { build(:api_wrong_url) }
 
   subject { described_class.new(file_path) }
 
-  describe "#rest_run!" do
-    it "returns the status codes" do
-      expect(subject.rest_run!).to eql(response)
-    end
+  before do
+    allow(HeartbeatAbril::RestChecker).to receive(:run!) { {"REST" => "MOCK"} }
+    allow(HeartbeatAbril::MongoChecker).to receive(:run!) { {"MONGO" => "MOCK"} }
   end
 
   describe "#run!" do
-    it "returns the status codes" do
-      expect(subject.run!).to eql(response)
+    context "when the app has more than one dependency" do
+      before do
+        allow(HeartbeatAbril::RestChecker).to receive(:app_has_rest_calls?) { true }
+        allow(HeartbeatAbril::MongoChecker).to receive(:app_has_mongo?) { true }
+      end
+
+      it "returns the status codes" do
+        expect(subject.run!).to eql([{"REST" => "MOCK"}, {"MONGO" => "MOCK"}])
+      end
+    end
+
+    context "when the app just have on kind of dependency" do
+      before do
+        allow(HeartbeatAbril::RestChecker).to receive(:app_has_rest_calls?) { false }
+        allow(HeartbeatAbril::MongoChecker).to receive(:app_has_mongo?) { true }
+      end
+
+      it "returns the status codes" do
+        expect(subject.run!).to eql([{"MONGO" => "MOCK"}])
+      end
     end
   end
 end

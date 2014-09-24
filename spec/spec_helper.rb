@@ -1,6 +1,7 @@
-require 'factory_girl'
+require "#{File.dirname(__FILE__)}/../lib/heartbeat_abril"
 
 # Load Factories
+require 'factory_girl'
 FactoryGirl.find_definitions
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
