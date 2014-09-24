@@ -6,10 +6,12 @@ require "heartbeat_abril/heartbeater"
 require "heartbeat_abril/checkers/rest_checker"
 require "heartbeat_abril/checkers/mongo_checker"
 require "heartbeat_abril/checkers/mysql_checker"
+require "heartbeat_abril/checkers/redis_checker"
 
 # Wrappers
 require "heartbeat_abril/wrappers/mongo_wrapper"
 require "heartbeat_abril/wrappers/mysql_wrapper"
+require "heartbeat_abril/wrappers/redis_wrapper"
 
 module HeartbeatAbril
   class Middleware
