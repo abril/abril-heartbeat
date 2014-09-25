@@ -36,7 +36,7 @@ module HeartbeatAbril
     private
 
     def response
-      Heartbeater.new(@file_path).run!
+      Heartbeater.new({:file_path => @file_path}).run!
     end
 
     def request

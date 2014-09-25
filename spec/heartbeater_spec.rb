@@ -10,7 +10,7 @@ describe HeartbeatAbril::Heartbeater do
 
   describe "#run!" do
     describe "Default checkers" do
-      subject { described_class.new(file_path).run! }
+      subject { described_class.new({file_path: file_path}).run! }
 
       context "when the app has more than one dependency" do
         before do
@@ -34,7 +34,7 @@ describe HeartbeatAbril::Heartbeater do
     describe "Custom checkers" do
       let(:custom_checker) { double("CustomChecker", is_running?: true) }
 
-      subject { described_class.new(file_path, {custom_checkers: [custom_checker]}) }
+      subject { described_class.new({file_path: file_path, custom_checkers: [custom_checker]}) }
 
       before do
         allow(HeartbeatAbril::RestChecker).to receive(:is_running?) { false }

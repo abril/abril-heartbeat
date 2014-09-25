@@ -5,6 +5,7 @@ module HeartbeatAbril
     end
 
     def self.load_by_type(type)
+      return load if load.empty?
       load.select{|_, v| v['type'] == type.to_s}
     end
 
