@@ -107,10 +107,10 @@ You custom checker class must implement the `HeartbeatAbril::AbstractChecker` in
 
 ## Future
 
-*add new MongoDrivers to support more apps.
-*use the yaml file to get the Redis client instance
-*basic auth? At this moment you must handle the request before our middleware
-*add a initializer to config the heartbeat route
+* add new MongoDrivers to support more apps.
+* use the yaml file to get the Redis client instance
+* basic auth? At this moment you must handle the request before our middleware
+* add a initializer to config the heartbeat route
 
 
 ## Contributing
