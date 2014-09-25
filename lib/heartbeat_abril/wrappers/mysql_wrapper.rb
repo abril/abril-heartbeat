@@ -5,7 +5,7 @@ module HeartbeatAbril
     end
 
     def self.has_client?
-      !!defined?(ActiveRecord::Base.connection.current_database)
+      !!defined?(ActiveRecord::Base.connection)
     end
   end
 end
