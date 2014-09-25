@@ -5,7 +5,7 @@ module HeartbeatAbril
     def initialize(file_path, options={})
       ConfigLoader.set_file(file_path)
 
-      @checkers = [MongoChecker, MysqlChecker]
+      @checkers = [MongoChecker, MysqlChecker, RedisChecker]
       @checkers += options[:custom_checkers] if options[:custom_checkers]
     end
 
