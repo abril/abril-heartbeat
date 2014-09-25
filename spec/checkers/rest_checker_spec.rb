@@ -5,9 +5,9 @@ describe HeartbeatAbril::RestChecker do
 
   let(:input_hash) do
     {
-        "api_success"   => { "url" => "http://www.scudelletti.com" },
-        "api_not_found" => { "url" => "http://www.scudelletti.com/not_found" },
-        "api_wrong_url" => { "url" => "I am a wrong url" }
+        "api_success"   => { "url" => "http://www.scudelletti.com", "type" => "rest" },
+        "api_not_found" => { "url" => "http://www.scudelletti.com/not_found", "type" => "rest" },
+        "api_wrong_url" => { "url" => "I am a wrong url", "type" => "rest" }
     }
   end
 

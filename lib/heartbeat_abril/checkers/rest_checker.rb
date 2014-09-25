@@ -22,7 +22,7 @@ module HeartbeatAbril
     private
 
     def self.rest_hash
-      ConfigLoader.load
+      ConfigLoader.load_by_type(:rest)
     end
 
     def self.check!(&block)
