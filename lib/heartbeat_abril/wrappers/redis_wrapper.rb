@@ -1,7 +1,7 @@
 module HeartbeatAbril
   class RedisWrapper
     def self.check_status!
-      REDIS.get(:version)
+      ::REDIS.get(:version)
     end
 
     def self.has_client?
