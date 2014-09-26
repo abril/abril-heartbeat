@@ -3,7 +3,7 @@ require 'rack/test'
 require 'heartbeat_abril'
 require 'json'
 
-describe HeartbeatAbril::Middleware do
+describe HeartbeatAbril::Middleware, :vcr do
   include Rack::Test::Methods
 
   let(:app)        { ->(env) { [200, env, "app"] } }

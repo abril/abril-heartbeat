@@ -1,0 +1,111 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.scudelletti.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 26 Sep 2014 13:09:40 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      Last-Modified:
+      - Mon, 14 Jul 2014 11:37:00 GMT
+      Etag:
+      - '"540027-942-4fe25b58cef00"'
+      Accept-Ranges:
+      - none
+      Content-Type:
+      - text/html
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '948'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA51W32/bNhB+319x0AsdxJacdGuHxEoRI10bYOuCOsMegqCg
+        qbPMhiI1krIqrPvfd5TkWG7aZcmTqfvF7+4+3nm29oU6+wFgtkaetQcvvcKz
+        C2lyAwtRZagUei9hAh+qZQMLs/I1twhvdC61RkuKP3EZ1FwqR78Lqbm3nE5X
+        PLNSm1nSxQzRC/QcNC8wjTJ0wsrSS6MjEEZ71D6NLlkBDy/nUNMdGW5QmRLt
+        GOq1gdrYOzAaLq/BSS0QjqfTl2O4BK5q3jjwtgFvIJNOmA0B5cqjJWxygy4o
+        Cn6HUDRdHJ5LhXGb47hLZbzNZAy/GZ2bi/l4m9GHeQRJm4+S+g7WFlcpW3tf
+        niTJijJxcW5MrpCX0sXCFIlw7vWKF1I16bnC3GLDDxdcu5Mfp9PxT9MpA4sq
+        Zc43Ct0a0TPwTYkp8/jZB28Wbtve98C2A9BK4mD8tXMHdg9uFOA6wluqagu3
+        hXrYVn9Q/Ki9LyqrpZJ0n426zJN7xixN1vTxM7kBobhzaRQ6yiURJOp0D7XU
+        73vdvrbgnydCWqFwYPBVgF49S0g4iNJ9fjOq1CtjC94Sbi/s+ugh3ym/o32j
+        47NvPAAMvPIw//3XC7jUPb+M5gq4zuCtrUoD50srFcU73oun+Wb4TRI+6Aw1
+        pq7rOPQLM6nbzkiduB3ABPezaEPIIgdnBeVa8Bxdcu9f6jwKDyCN5srk0ZYQ
+        u7LxQdEeoAk8yaVfV8sWyADF4xB6vx2At9K/q5bPgeBr6anELYbsSSC2njsU
+        153kOTBCY1Zc4NKYuxbL4ilQ7j13WH7pRc8B8/jzfbxDbYxBg9pocEXSpyLq
+        q0NASqnoBZjY2PxxBEvi5P+i6PBz7wHtv/vBUBgeu32zddpwCx9z/hek3c+X
+        L3Bze9orgyQuK7ce3bCPDv25EKbSno2B/XE+OT56+erFz69eTI7Y7cH3XC5M
+        QfPvPe264DWgayjPf/idK2Xqd9ytg9uKK4ffM6bdJO6uqIIbiXVr1FuNVpUW
+        YQ6NDuDvQbo5p2QzI6qCZm8sLHKPbxSGrxHrqsMOTsksDguEbLsV8olveK9t
+        ldw1WpDW2wq3wEhMHSXhiHXUZJAO7lJGtIMxLq3xRhgFr4FtOeycYnACbMcg
+        dgCHwHpeTzjN08ZL0e1SuumTY6eDtNwwqxx9n5KbN9c8Dw3YJXczvT0FIjsN
+        cO3fmwxjqR1aP0faDTjKadm7+2L/czBqz7Nkx5xZ0q07muftX6d/AeG2G0BC
+        CQAA
+    http_version: 
+  recorded_at: Fri, 26 Sep 2014 13:09:41 GMT
+- request:
+    method: get
+    uri: http://www.scudelletti.com/not_found
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      Date:
+      - Fri, 26 Sep 2014 13:09:41 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.21
+      X-Cascade:
+      - pass
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '18'
+      Status:
+      - '404'
+      Content-Type:
+      - text/html;charset=utf-8
+      Accept-Ranges:
+      - none
+    body:
+      encoding: UTF-8
+      string: "<h1>Not Found</h1>"
+    http_version: 
+  recorded_at: Fri, 26 Sep 2014 13:09:41 GMT
+recorded_with: VCR 2.9.3
