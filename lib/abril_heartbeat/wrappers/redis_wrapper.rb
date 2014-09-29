@@ -1,4 +1,4 @@
-module HeartbeatAbril
+module AbrilHeartbeat
   class RedisWrapper
     def self.check_status!
       ::REDIS.get(:version)

@@ -1,17 +1,17 @@
-module HeartbeatAbril
-  class MongoChecker < AbstractChecker
+module AbrilHeartbeat
+  class RedisChecker < AbstractChecker
     def self.is_running?
-      MongoWrapper.has_client?
+      RedisWrapper.has_client?
     end
 
     def self.module_name
-      "MONGO"
+      "REDIS"
     end
 
     private
 
     def self.check!
-      MongoWrapper.check_status!
+      RedisWrapper.check_status!
       ["OK", "Everything is under control"]
     rescue => exception
       ["FAIL", exception.message]

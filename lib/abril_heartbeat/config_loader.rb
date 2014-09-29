@@ -1,4 +1,4 @@
-module HeartbeatAbril
+module AbrilHeartbeat
   class ConfigLoader
     def self.load
       @file ||= load_file

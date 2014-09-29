@@ -1,4 +1,4 @@
-# HeartbeatAbril
+# AbrilHeartbeat
 
 This GEM is a middleware which adds a heartbeat route to your Apps, a route which checks your external dependencies such as MySQL, Mongo, Redis and REST APIs.  
 
@@ -16,7 +16,7 @@ Rails Example
 In the config/application.rb file add the following middleware.
 
 ```ruby
-config.middleware.use "HeartbeatAbril::Middleware"
+config.middleware.use "AbrilHeartbeat::Middleware"
 ```
 
 Then access the `/heartbeat` in your app.
@@ -49,7 +49,7 @@ api_not_found:
 
 For APIs checking, create a heartbeat.yml and pass it in the middleware initialization:
 ```ruby
-config.middleware.use "HeartbeatAbril::Middleware", :file_path => "#{File.dirname(__FILE__)}/heartbeat.yml"
+config.middleware.use "AbrilHeartbeat::Middleware", :file_path => "#{File.dirname(__FILE__)}/heartbeat.yml"
 ```
 
 Response's example
@@ -100,10 +100,10 @@ By default we use the ActiveRecord to check the connection.
 In the middleware initialization you can pass your own checkers:
 
 ```ruby
-config.middleware.use "HeartbeatAbril::Middleware", {custom_checkers: [YourCustomCheckerClass]}
+config.middleware.use "AbrilHeartbeat::Middleware", {custom_checkers: [YourCustomCheckerClass]}
 ```
 
-You custom checker class must implement the `HeartbeatAbril::AbstractChecker` interface.
+You custom checker class must implement the `AbrilHeartbeat::AbstractChecker` interface.
 
 ## Future
 

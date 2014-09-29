@@ -1,4 +1,4 @@
-module HeartbeatAbril
+module AbrilHeartbeat
   class MysqlWrapper
     def self.check_status!
       ::ActiveRecord::Base.connection.current_database

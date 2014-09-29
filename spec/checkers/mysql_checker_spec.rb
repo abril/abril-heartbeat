@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe HeartbeatAbril::MysqlChecker do
+describe AbrilHeartbeat::MysqlChecker do
   let(:success_response) {{ "MYSQL" => {"status" => "OK", "status_message" => "Everything is under control" }}}
   let(:fail_response)    {{ "MYSQL" => {"status" => "FAIL", "status_message" => "YYYY" }}}
 
@@ -8,7 +8,7 @@ describe HeartbeatAbril::MysqlChecker do
 
   describe "#run!" do
     context "when the mongo is online" do
-      before { allow(HeartbeatAbril::MysqlWrapper).to receive(:check_status!) }
+      before { allow(AbrilHeartbeat::MysqlWrapper).to receive(:check_status!) }
 
       subject { described_class.run! }
 
@@ -16,7 +16,7 @@ describe HeartbeatAbril::MysqlChecker do
     end
 
     context "when the mongo offline" do
-      before { allow(HeartbeatAbril::MysqlWrapper).to receive(:check_status!) { raise "YYYY" } }
+      before { allow(AbrilHeartbeat::MysqlWrapper).to receive(:check_status!) { raise "YYYY" } }
 
       subject { described_class.run! }
 
@@ -26,7 +26,7 @@ describe HeartbeatAbril::MysqlChecker do
 
   describe "#is_running?" do
     context "when the app has a mysql client" do
-      before { allow(HeartbeatAbril::MysqlWrapper).to receive(:has_client?) { "constant" } }
+      before { allow(AbrilHeartbeat::MysqlWrapper).to receive(:has_client?) { "constant" } }
 
       subject { described_class.is_running? }
 

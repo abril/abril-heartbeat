@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe HeartbeatAbril::RedisChecker do
+describe AbrilHeartbeat::RedisChecker do
   let(:success_response) {{ "REDIS" => {"status" => "OK", "status_message" => "Everything is under control" }}}
   let(:fail_response)    {{ "REDIS" => {"status" => "FAIL", "status_message" => "ZZZZ" }}}
 
@@ -8,7 +8,7 @@ describe HeartbeatAbril::RedisChecker do
 
   describe "#run!" do
     context "when the mongo is online" do
-      before { allow(HeartbeatAbril::RedisWrapper).to receive(:check_status!) }
+      before { allow(AbrilHeartbeat::RedisWrapper).to receive(:check_status!) }
 
       subject { described_class.run! }
 
@@ -16,7 +16,7 @@ describe HeartbeatAbril::RedisChecker do
     end
 
     context "when the mongo offline" do
-      before { allow(HeartbeatAbril::RedisWrapper).to receive(:check_status!) { raise "ZZZZ" } }
+      before { allow(AbrilHeartbeat::RedisWrapper).to receive(:check_status!) { raise "ZZZZ" } }
 
       subject { described_class.run! }
 
@@ -26,7 +26,7 @@ describe HeartbeatAbril::RedisChecker do
 
   describe "#is_running?" do
     context "when the app has a redis client" do
-      before { allow(HeartbeatAbril::RedisWrapper).to receive(:has_client?) { "constant" } }
+      before { allow(AbrilHeartbeat::RedisWrapper).to receive(:has_client?) { "constant" } }
 
       subject { described_class.is_running? }
 

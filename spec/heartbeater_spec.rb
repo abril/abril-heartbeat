@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe HeartbeatAbril::Heartbeater do
+describe AbrilHeartbeat::Heartbeater do
   let(:file_path) { "#{File.dirname(__FILE__)}/support/heartbeat_example.yml" }
 
   before do
-    allow(HeartbeatAbril::RestChecker).to receive(:run!) { {"REST" => "MOCK"} }
-    allow(HeartbeatAbril::MongoChecker).to receive(:run!) { {"MONGO" => "MOCK"} }
+    allow(AbrilHeartbeat::RestChecker).to receive(:run!) { {"REST" => "MOCK"} }
+    allow(AbrilHeartbeat::MongoChecker).to receive(:run!) { {"MONGO" => "MOCK"} }
   end
 
   describe "#run!" do
@@ -14,8 +14,8 @@ describe HeartbeatAbril::Heartbeater do
 
       context "when the app has more than one dependency" do
         before do
-          allow(HeartbeatAbril::RestChecker).to receive(:is_running?) { true }
-          allow(HeartbeatAbril::MongoChecker).to receive(:is_running?) { true }
+          allow(AbrilHeartbeat::RestChecker).to receive(:is_running?) { true }
+          allow(AbrilHeartbeat::MongoChecker).to receive(:is_running?) { true }
         end
 
         it { is_expected.to eql([{"REST" => "MOCK"}, {"MONGO" => "MOCK"}]) }
@@ -23,8 +23,8 @@ describe HeartbeatAbril::Heartbeater do
 
       context "when the app just have on kind of dependency" do
         before do
-          allow(HeartbeatAbril::RestChecker).to receive(:is_running?) { false }
-          allow(HeartbeatAbril::MongoChecker).to receive(:is_running?) { true }
+          allow(AbrilHeartbeat::RestChecker).to receive(:is_running?) { false }
+          allow(AbrilHeartbeat::MongoChecker).to receive(:is_running?) { true }
         end
 
         it { is_expected.to eql([{"MONGO" => "MOCK"}]) }
@@ -37,9 +37,9 @@ describe HeartbeatAbril::Heartbeater do
       subject { described_class.new({file_path: file_path, custom_checkers: [custom_checker]}) }
 
       before do
-        allow(HeartbeatAbril::RestChecker).to receive(:is_running?) { false }
-        allow(HeartbeatAbril::MongoChecker).to receive(:is_running?) { false }
-        allow(HeartbeatAbril::MysqlChecker).to receive(:is_running?) { false }
+        allow(AbrilHeartbeat::RestChecker).to receive(:is_running?) { false }
+        allow(AbrilHeartbeat::MongoChecker).to receive(:is_running?) { false }
+        allow(AbrilHeartbeat::MysqlChecker).to receive(:is_running?) { false }
       end
 
       it "returns the status codes" do

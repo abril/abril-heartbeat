@@ -1,4 +1,4 @@
-module HeartbeatAbril
+module AbrilHeartbeat
   class MongoWrapper
     def self.check_status!
       ::Mongoid.default_session.command(ping: 1)

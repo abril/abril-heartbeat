@@ -1,6 +1,6 @@
 require "rest_client"
 
-module HeartbeatAbril
+module AbrilHeartbeat
   class RestChecker < AbstractChecker
     def self.is_running?
       !rest_hash.empty?

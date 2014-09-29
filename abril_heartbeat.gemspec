@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'heartbeat_abril/version'
+require 'abril_heartbeat/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "heartbeat_abril"
-  spec.version       = HeartbeatAbril::VERSION
+  spec.name          = "abril_heartbeat"
+  spec.version       = AbrilHeartbeat::VERSION
   spec.authors       = ["Diogo Scudelletti"]
   spec.email         = ["diogo@scudelletti.com"]
   spec.summary       = %q{Builds a heartbeat route for Apps}
   spec.description   = %q{This GEM is a middleware which adds a heartbeat route to your Apps, a route which checks your external dependencies such as MySQL, Mongo, Redis and REST APIs.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/abril/abril_heartbeat"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

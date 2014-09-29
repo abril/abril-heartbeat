@@ -1,9 +1,9 @@
 require 'spec_helper'
 require 'rack/test'
-require 'heartbeat_abril'
+require 'abril_heartbeat'
 require 'json'
 
-describe HeartbeatAbril::Middleware, :vcr do
+describe AbrilHeartbeat::Middleware, :vcr do
   include Rack::Test::Methods
 
   let(:app)        { ->(env) { [200, env, "app"] } }

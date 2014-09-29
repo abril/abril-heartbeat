@@ -1,4 +1,4 @@
-module HeartbeatAbril
+module AbrilHeartbeat
   class AbstractChecker
     def self.is_running?
       raise NotImplementedError

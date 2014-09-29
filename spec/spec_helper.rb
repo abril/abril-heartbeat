@@ -1,4 +1,4 @@
-require "#{File.dirname(__FILE__)}/../lib/heartbeat_abril"
+require "#{File.dirname(__FILE__)}/../lib/abril_heartbeat"
 
 # Load Factories
 require 'factory_girl'

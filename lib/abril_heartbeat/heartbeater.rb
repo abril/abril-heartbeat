@@ -1,6 +1,6 @@
 require "yaml"
 
-module HeartbeatAbril
+module AbrilHeartbeat
   class Heartbeater
     def initialize(options={})
       ConfigLoader.set_file(options[:file_path]) if options[:file_path]
