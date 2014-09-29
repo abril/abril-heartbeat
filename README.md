@@ -1,4 +1,4 @@
-# AbrilHeartbeat
+# Abril Heartbeat
 
 This GEM is a middleware which adds a heartbeat route to your Apps, a route which checks your external dependencies such as MySQL, Mongo, Redis and REST APIs.  
 
@@ -7,7 +7,7 @@ This GEM is a middleware which adds a heartbeat route to your Apps, a route whic
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'heartbeat_abril'
+gem 'abril_heartbeat'
 ```
 
 Set the middleware on your app.
@@ -115,7 +115,7 @@ You custom checker class must implement the `AbrilHeartbeat::AbstractChecker` in
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/heartbeat_abril/fork )
+1. Fork it ( https://github.com/abril/abril_heartbeat/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
