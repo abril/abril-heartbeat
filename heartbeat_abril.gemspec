@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = HeartbeatAbril::VERSION
   spec.authors       = ["Diogo Scudelletti"]
   spec.email         = ["diogo@scudelletti.com"]
-  spec.summary       = %q{Builds a heartbeat route for Abril Apps}
-  spec.description   = %q{Builds a heartbeat route for Abril Apps}
+  spec.summary       = %q{Builds a heartbeat route for Apps}
+  spec.description   = %q{This GEM is a middleware which adds a heartbeat route to your Apps, a route which checks your external dependencies such as MySQL, Mongo, Redis and REST APIs.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
