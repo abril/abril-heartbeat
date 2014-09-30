@@ -8,8 +8,6 @@ module AbrilHeartbeat
       'MONGO'
     end
 
-    private
-
     def self.check!
       MongoWrapper.check_status!
       ['OK', 'Everything is under control']

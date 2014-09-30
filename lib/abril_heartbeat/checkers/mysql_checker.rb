@@ -8,8 +8,6 @@ module AbrilHeartbeat
       'MYSQL'
     end
 
-    private
-
     def self.check!
       MysqlWrapper.check_status!
       ['OK', 'Everything is under control']

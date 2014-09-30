@@ -13,8 +13,6 @@ module AbrilHeartbeat
       { module_name => { 'status' => status, 'status_message' => message } }
     end
 
-    private
-
     def self.check!
       fail NotImplementedError
     end

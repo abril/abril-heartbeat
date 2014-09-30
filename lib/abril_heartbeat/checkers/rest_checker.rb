@@ -19,12 +19,6 @@ module AbrilHeartbeat
       'REST'
     end
 
-    private
-
-    def self.rest_hash
-      ConfigLoader.load_by_type(:rest)
-    end
-
     def self.check!
       url = yield
       response = RestClient.get(url)
@@ -34,5 +28,11 @@ module AbrilHeartbeat
     rescue => exception
       [nil, exception.message]
     end
+
+    def self.rest_hash
+      ConfigLoader.load_by_type(:rest)
+    end
+
+    private_class_method :rest_hash
   end
 end

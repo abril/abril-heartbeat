@@ -8,8 +8,6 @@ module AbrilHeartbeat
       'REDIS'
     end
 
-    private
-
     def self.check!
       RedisWrapper.check_status!
       ['OK', 'Everything is under control']
