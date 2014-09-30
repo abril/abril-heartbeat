@@ -1,5 +1,9 @@
 module AbrilHeartbeat
   class ConfigLoader
+    class << self
+      attr_accessor :file_path
+    end
+
     def self.load
       @file ||= load_file
     end
@@ -9,14 +13,10 @@ module AbrilHeartbeat
       load.select { |_, v| v['type'] == type.to_s }
     end
 
-    def self.set_file(file_path)
-      @file_path = file_path
-    end
-
     def self.load_file
-      return {} unless @file_path
+      return {} unless file_path
 
-      ::YAML.load_file(@file_path)
+      ::YAML.load_file(file_path)
     end
   end
 end
