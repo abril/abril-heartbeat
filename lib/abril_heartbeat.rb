@@ -1,25 +1,25 @@
-require "json"
-require "abril_heartbeat/version"
-require "abril_heartbeat/heartbeater"
+require 'json'
+require 'abril_heartbeat/version'
+require 'abril_heartbeat/heartbeater'
 
 # Config Loader
-require "abril_heartbeat/config_loader"
+require 'abril_heartbeat/config_loader'
 
 # Checkers
-require "abril_heartbeat/checkers/abstract_checker"
-require "abril_heartbeat/checkers/rest_checker"
-require "abril_heartbeat/checkers/mongo_checker"
-require "abril_heartbeat/checkers/mysql_checker"
-require "abril_heartbeat/checkers/redis_checker"
+require 'abril_heartbeat/checkers/abstract_checker'
+require 'abril_heartbeat/checkers/rest_checker'
+require 'abril_heartbeat/checkers/mongo_checker'
+require 'abril_heartbeat/checkers/mysql_checker'
+require 'abril_heartbeat/checkers/redis_checker'
 
 # Wrappers
-require "abril_heartbeat/wrappers/mongo_wrapper"
-require "abril_heartbeat/wrappers/mysql_wrapper"
-require "abril_heartbeat/wrappers/redis_wrapper"
+require 'abril_heartbeat/wrappers/mongo_wrapper'
+require 'abril_heartbeat/wrappers/mysql_wrapper'
+require 'abril_heartbeat/wrappers/redis_wrapper'
 
 module AbrilHeartbeat
   class Middleware
-    def initialize(app, options={})
+    def initialize(app, options = {})
       @app = app
       @file_path = options[:file_path]
     end
@@ -36,7 +36,7 @@ module AbrilHeartbeat
     private
 
     def response
-      Heartbeater.new({:file_path => @file_path}).run!
+      Heartbeater.new(file_path: @file_path).run!
     end
 
     def request

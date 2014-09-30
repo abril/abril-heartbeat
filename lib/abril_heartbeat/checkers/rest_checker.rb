@@ -1,4 +1,4 @@
-require "rest_client"
+require 'rest_client'
 
 module AbrilHeartbeat
   class RestChecker < AbstractChecker
@@ -8,15 +8,15 @@ module AbrilHeartbeat
 
     def self.run!
       messages = rest_hash.map do |key, value|
-        status, message = check!{ value['url'] }
-        { key => { "url" => value["url"], "status" => status, "status_message" => message }}
+        status, message = check! { value['url'] }
+        { key => { 'url' => value['url'], 'status' => status, 'status_message' => message } }
       end
 
       { module_name => messages }
     end
 
     def self.module_name
-      "REST"
+      'REST'
     end
 
     private
@@ -25,12 +25,12 @@ module AbrilHeartbeat
       ConfigLoader.load_by_type(:rest)
     end
 
-    def self.check!(&block)
+    def self.check!
       url = yield
       response = RestClient.get(url)
-      [response.code, "OK"]
+      [response.code, 'OK']
     rescue RestClient::ResourceNotFound
-      [404, "Page Not Found"]
+      [404, 'Page Not Found']
     rescue => exception
       [nil, exception.message]
     end

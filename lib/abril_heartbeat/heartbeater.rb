@@ -1,8 +1,8 @@
-require "yaml"
+require 'yaml'
 
 module AbrilHeartbeat
   class Heartbeater
-    def initialize(options={})
+    def initialize(options = {})
       ConfigLoader.set_file(options[:file_path]) if options[:file_path]
 
       @checkers = [MongoChecker, MysqlChecker, RedisChecker]

@@ -5,16 +5,16 @@ module AbrilHeartbeat
     end
 
     def self.module_name
-      "MONGO"
+      'MONGO'
     end
 
     private
 
     def self.check!
       MongoWrapper.check_status!
-      ["OK", "Everything is under control"]
+      ['OK', 'Everything is under control']
     rescue => exception
-      ["FAIL", exception.message]
+      ['FAIL', exception.message]
     end
   end
 end

@@ -5,16 +5,16 @@ module AbrilHeartbeat
     end
 
     def self.module_name
-      "MYSQL"
+      'MYSQL'
     end
 
     private
 
     def self.check!
       MysqlWrapper.check_status!
-      ["OK", "Everything is under control"]
+      ['OK', 'Everything is under control']
     rescue => exception
-      ["FAIL", exception.message]
+      ['FAIL', exception.message]
     end
   end
 end

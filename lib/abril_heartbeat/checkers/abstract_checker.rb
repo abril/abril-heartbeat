@@ -1,22 +1,22 @@
 module AbrilHeartbeat
   class AbstractChecker
     def self.running?
-      raise NotImplementedError
+      fail NotImplementedError
     end
 
     def self.module_name
-      raise NotImplementedError
+      fail NotImplementedError
     end
 
     def self.run!
       status, message = check!
-      { module_name => { "status" => status, "status_message" => message }}
+      { module_name => { 'status' => status, 'status_message' => message } }
     end
 
     private
 
     def self.check!
-      raise NotImplementedError
+      fail NotImplementedError
     end
   end
 end

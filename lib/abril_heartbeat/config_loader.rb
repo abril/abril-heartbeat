@@ -6,7 +6,7 @@ module AbrilHeartbeat
 
     def self.load_by_type(type)
       return load if load.empty?
-      load.select{|_, v| v['type'] == type.to_s}
+      load.select { |_, v| v['type'] == type.to_s }
     end
 
     def self.set_file(file_path)
