@@ -4,7 +4,7 @@ module AbrilHeartbeat
       ::Mongoid.default_session.command(ping: 1)
     end
 
-    def self.has_client?
+    def self.client?
       !!defined?(Mongoid)
     end
   end

@@ -1,7 +1,7 @@
 module AbrilHeartbeat
   class MysqlChecker < AbstractChecker
     def self.running?
-      MysqlWrapper.has_client?
+      MysqlWrapper.client?
     end
 
     def self.module_name

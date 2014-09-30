@@ -4,7 +4,7 @@ module AbrilHeartbeat
       ::ActiveRecord::Base.connection.current_database
     end
 
-    def self.has_client?
+    def self.client?
       !!defined?(ActiveRecord::Base.connection)
     end
   end

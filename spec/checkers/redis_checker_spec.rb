@@ -26,7 +26,7 @@ describe AbrilHeartbeat::RedisChecker do
 
   describe "#running?" do
     context "when the app has a redis client" do
-      before { allow(AbrilHeartbeat::RedisWrapper).to receive(:has_client?) { "constant" } }
+      before { allow(AbrilHeartbeat::RedisWrapper).to receive(:client?) { "constant" } }
 
       subject { described_class.running? }
 

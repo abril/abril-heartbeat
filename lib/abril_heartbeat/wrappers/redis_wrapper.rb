@@ -4,7 +4,7 @@ module AbrilHeartbeat
       ::REDIS.get(:version)
     end
 
-    def self.has_client?
+    def self.client?
       !!defined?(REDIS)
     end
   end

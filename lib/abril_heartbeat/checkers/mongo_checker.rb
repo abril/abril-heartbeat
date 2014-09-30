@@ -1,7 +1,7 @@
 module AbrilHeartbeat
   class MongoChecker < AbstractChecker
     def self.running?
-      MongoWrapper.has_client?
+      MongoWrapper.client?
     end
 
     def self.module_name
