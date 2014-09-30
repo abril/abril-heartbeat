@@ -24,17 +24,17 @@ describe AbrilHeartbeat::MongoChecker do
     end
   end
 
-  describe "#is_running?" do
+  describe "#running?" do
     context "when the app has a mongo client" do
       before { allow(AbrilHeartbeat::MongoWrapper).to receive(:has_client?) { "constant" } }
 
-      subject { described_class.is_running? }
+      subject { described_class.running? }
 
       it { is_expected.to be_truthy }
     end
 
     context "when the app does not have a mongo client" do
-      subject { described_class.is_running? }
+      subject { described_class.running? }
 
       it { is_expected.to be_falsy }
     end

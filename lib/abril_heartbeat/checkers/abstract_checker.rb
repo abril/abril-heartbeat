@@ -1,6 +1,6 @@
 module AbrilHeartbeat
   class AbstractChecker
-    def self.is_running?
+    def self.running?
       raise NotImplementedError
     end
 

@@ -14,8 +14,8 @@ describe AbrilHeartbeat::Heartbeater do
 
       context "when the app has more than one dependency" do
         before do
-          allow(AbrilHeartbeat::RestChecker).to receive(:is_running?) { true }
-          allow(AbrilHeartbeat::MongoChecker).to receive(:is_running?) { true }
+          allow(AbrilHeartbeat::RestChecker).to receive(:running?) { true }
+          allow(AbrilHeartbeat::MongoChecker).to receive(:running?) { true }
         end
 
         it { is_expected.to eql([{"REST" => "MOCK"}, {"MONGO" => "MOCK"}]) }
@@ -23,8 +23,8 @@ describe AbrilHeartbeat::Heartbeater do
 
       context "when the app just have on kind of dependency" do
         before do
-          allow(AbrilHeartbeat::RestChecker).to receive(:is_running?) { false }
-          allow(AbrilHeartbeat::MongoChecker).to receive(:is_running?) { true }
+          allow(AbrilHeartbeat::RestChecker).to receive(:running?) { false }
+          allow(AbrilHeartbeat::MongoChecker).to receive(:running?) { true }
         end
 
         it { is_expected.to eql([{"MONGO" => "MOCK"}]) }
@@ -32,18 +32,18 @@ describe AbrilHeartbeat::Heartbeater do
     end
 
     describe "Custom checkers" do
-      let(:custom_checker) { double("CustomChecker", is_running?: true) }
+      let(:custom_checker) { double("CustomChecker", running?: true) }
 
       subject { described_class.new({file_path: file_path, custom_checkers: [custom_checker]}) }
 
       before do
-        allow(AbrilHeartbeat::RestChecker).to receive(:is_running?) { false }
-        allow(AbrilHeartbeat::MongoChecker).to receive(:is_running?) { false }
-        allow(AbrilHeartbeat::MysqlChecker).to receive(:is_running?) { false }
+        allow(AbrilHeartbeat::RestChecker).to receive(:running?) { false }
+        allow(AbrilHeartbeat::MongoChecker).to receive(:running?) { false }
+        allow(AbrilHeartbeat::MysqlChecker).to receive(:running?) { false }
       end
 
       it "returns the status codes" do
-        expect(custom_checker).to receive(:is_running?)
+        expect(custom_checker).to receive(:running?)
         expect(custom_checker).to receive(:run!)
 
         subject.run!

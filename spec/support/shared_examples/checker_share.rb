@@ -3,7 +3,7 @@ RSpec.shared_examples "a checker" do
 
   subject{ described_class }
 
-  it { is_expected.to respond_to(:is_running?) }
+  it { is_expected.to respond_to(:running?) }
   it { is_expected.to respond_to(:module_name) }
   it { is_expected.to respond_to(:run!) }
   it { is_expected.to respond_to(:check!) }

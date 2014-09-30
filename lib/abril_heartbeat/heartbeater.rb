@@ -11,10 +11,10 @@ module AbrilHeartbeat
 
     def run!
       response = []
-      response << RestChecker.run! if RestChecker.is_running?
+      response << RestChecker.run! if RestChecker.running?
 
       @checkers.each do |checker|
-        response << checker.run! if checker.is_running?
+        response << checker.run! if checker.running?
       end
 
       response

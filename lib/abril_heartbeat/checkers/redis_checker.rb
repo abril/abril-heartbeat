@@ -1,6 +1,6 @@
 module AbrilHeartbeat
   class RedisChecker < AbstractChecker
-    def self.is_running?
+    def self.running?
       RedisWrapper.has_client?
     end
 

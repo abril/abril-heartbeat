@@ -2,7 +2,7 @@ require "rest_client"
 
 module AbrilHeartbeat
   class RestChecker < AbstractChecker
-    def self.is_running?
+    def self.running?
       !rest_hash.empty?
     end
 

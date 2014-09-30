@@ -24,17 +24,17 @@ describe AbrilHeartbeat::MysqlChecker do
     end
   end
 
-  describe "#is_running?" do
+  describe "#running?" do
     context "when the app has a mysql client" do
       before { allow(AbrilHeartbeat::MysqlWrapper).to receive(:has_client?) { "constant" } }
 
-      subject { described_class.is_running? }
+      subject { described_class.running? }
 
       it { is_expected.to be_truthy }
     end
 
     context "when the app does not have a mysql client" do
-      subject { described_class.is_running? }
+      subject { described_class.running? }
 
       it { is_expected.to be_falsy }
     end
