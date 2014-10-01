@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["diogo@scudelletti.com"]
   spec.summary       = %q{Builds a heartbeat route for Apps}
   spec.description   = %q{This GEM is a middleware which adds a heartbeat route to your Apps, a route which checks your external dependencies such as MySQL, Mongo, Redis and REST APIs.}
-  spec.homepage      = "https://github.com/abril/abril_heartbeat"
+  spec.homepage      = "https://github.com/abril/abril-heartbeat"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
