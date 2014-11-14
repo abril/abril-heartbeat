@@ -22,7 +22,7 @@ config.middleware.use "AbrilHeartbeat::Middleware"
 Then access the `/heartbeat` in your app.
 
 Response's example
-```json
+```javascript
 [{
   MONGO: {
     status: "FAIL",
@@ -53,7 +53,7 @@ config.middleware.use "AbrilHeartbeat::Middleware", :file_path => "#{File.dirnam
 ```
 
 Response's example
-```json
+```javascript
 [{
   REST: [{
     api_success: {
